@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Hotel Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f2ea; }
+        header { background: #d7c9a3; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        nav a { margin-right: 15px; text-decoration: none; color: #333; font-weight: bold; }
+        .lang-btn { cursor: pointer; margin-left: 10px; }
+        .section { padding: 40px; }
+        .rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .room-card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .room-card img { width: 100%; border-radius: 10px; }
+        footer { background: #d7c9a3; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div><strong id="hotelName">Sample Hotel</strong></div>
+    <nav>
+        <a href="#home" data-lang="nav_home">Home</a>
+        <a href="#rooms" data-lang="nav_rooms">Rooms</a>
+        <a href="#location" data-lang="nav_location">Location</a>
+        <a href="#contact" data-lang="nav_contact">Contact</a>
+        <span class="lang-btn" onclick="setLang('ko')">KR</span>
+        <span class="lang-btn" onclick="setLang('en')">EN</span>
+        <span class="lang-btn" onclick="setLang('jp')">JP</span>
+        <span class="lang-btn" onclick="setLang('cn')">CN</span>
+    </nav>
+</header>
+
+<section id="home" class="section">
+    <h2 data-lang="home_title">Welcome to Sample Hotel</h2>
+    <p data-lang="home_desc">A cozy and comfortable stay awaits you.</p>
+    <img src="https://via.placeholder.com/800x300" style="width:100%; border-radius:10px;" />
+</section>
+
+<section id="rooms" class="section">
+    <h2 data-lang="rooms_title">Rooms</h2>
+    <div class="rooms">
+        <div class="room-card">
+            <img src="https://via.placeholder.com/300x200" />
+            <h3 data-lang="room1">Standard Double</h3>
+            <p data-lang="room1_desc">A comfortable double room for two guests.</p>
+        </div>
+        <div class="room-card">
+            <img src="https://via.placeholder.com/300x200" />
+            <h3 data-lang="room2">Twin Room</h3>
+            <p data-lang="room2_desc">A cozy twin-bed room.</p>
+        </div>
+        <div class="room-card">
+            <img src="https://via.placeholder.com/300x200" />
+            <h3 data-lang="room3">Suite</h3>
+            <p data-lang="room3_desc">Spacious suite with a living area.</p>
+        </div>
+    </div>
+</section>
+
+<section id="location" class="section">
+    <h2 data-lang="loc_title">Location</h2>
+    <p data-lang="loc_address">123 Sample Street, Incheon, South Korea</p>
+    <img src="https://via.placeholder.com/800x300" style="width:100%; border-radius:10px;" />
+</section>
+
+<section id="contact" class="section">
+    <h2 data-lang="contact_title">Contact</h2>
+    <p data-lang="contact_phone">Phone: 010-1234-5678</p>
+    <p data-lang="contact_email">Email: sample@hotel.com</p>
+</section>
+
+<footer>
+    © 2025 Sample Hotel
+</footer>
+
+<script>
+const langData = {
+    ko: {
+        nav_home: "홈",
+        nav_rooms: "객실",
+        nav_location: "위치",
+        nav_contact: "문의",
+        home_title: "샘플 호텔에 오신 것을 환영합니다",
+        home_desc: "아늑하고 편안한 휴식을 제공합니다.",
+        rooms_title: "객실 소개",
+        room1: "스탠다드 더블",
+        room1_desc: "2인용 아늑한 더블룸입니다.",
+        room2: "트윈룸",
+        room2_desc: "편안한 트윈룸입니다.",
+        room3: "스위트룸",
+        room3_desc: "넓은 거실이 포함된 스위트룸입니다.",
+        loc_title: "위치 안내",
+        loc_address: "인천 미추홀구 샘플로 123",
+        contact_title: "문의하기",
+        contact_phone: "전화: 010-1234-5678",
+        contact_email: "이메일: sample@hotel.com"
+    },
+    en: {
+        nav_home: "Home",
+        nav_rooms: "Rooms",
+        nav_location: "Location",
+        nav_contact: "Contact",
+        home_title: "Welcome to Sample Hotel",
+        home_desc: "A cozy and comfortable stay awaits you.",
+        rooms_title: "Rooms",
+        room1: "Standard Double",
+        room1_desc: "A comfortable double room for two guests.",
+        room2: "Twin Room",
+        room2_desc: "A cozy twin-bed room.",
+        room3: "Suite",
+        room3_desc: "A spacious suite with living area.",
+        loc_title: "Location",
+        loc_address: "123 Sample Street, Incheon, South Korea",
+        contact_title: "Contact",
+        contact_phone: "Phone: 010-1234-5678",
+        contact_email: "Email: sample@hotel.com"
+    },
+    jp: {
+        nav_home: "ホーム",
+        nav_rooms: "客室",
+        nav_location: "場所",
+        nav_contact: "連絡先",
+        home_title: "サンプルホテルへようこそ",
+        home_desc: "快適で心地よい滞在を提供します。",
+        rooms_title: "客室",
+        room1: "スタンダードダブル",
+        room1_desc: "2名様用の快適なダブルルームです。",
+        room2: "ツインルーム",
+        room2_desc: "快適なツインルームです。",
+        room3: "スイート",
+        room3_desc: "リビングエリア付きの広いスイートです。",
+        loc_title: "場所",
+        loc_address: "韓国インチョン市サンプル通り123",
+        contact_title: "連絡先",
+        contact_phone: "電話: 010-1234-5678",
+        contact_email: "メール: sample@hotel.com"
+    },
+    cn: {
+        nav_home: "首页",
+        nav_rooms: "客房",
+        nav_location: "位置",
+        nav_contact: "联系",
+        home_title: "欢迎来到示例酒店",
+        home_desc: "为您提供舒适温馨的住宿体验。",
+        rooms_title: "客房介绍",
+        room1: "标准双人房",
+        room1_desc: "适合两人的舒适双人房。",
+        room2: "双床房",
+        room2_desc: "舒适的双床房。",
+        room3: "套房",
+        room3_desc: "带有客厅的宽敞套房。",
+        loc_title: "位置",
+        loc_address: "韩国仁川市示例路123号",
+        contact_title: "联系方式",
+        contact_phone: "电话: 010-1234-5678",
+        contact_email: "邮箱: sample@hotel.com"
+    }
+};
+
+function setLang(lang) {
+    document.querySelectorAll("[data-lang]").forEach(el => {
+        const key = el.getAttribute("data-lang");
+        el.textContent = langData[lang][key];
+    });
+}
+</script>
+
+</body>
+</html>
